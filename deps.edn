@@ -1,0 +1,15 @@
+{:paths ["src" "resources"]
+ :deps {org.clojure/clojure {:mvn/version "1.10.3"}
+        org.clojure/core.cache {:mvn/version "1.0.225"}
+        cljfx/cljfx {:mvn/version "1.7.17"
+                     :exclusions [org.openjfx/javafx-web
+                                  org.openjfx/javafx-media]}
+        clj-http/clj-http {:mvn/version "3.12.3"}
+        cheshire/cheshire {:mvn/version "5.10.1"} ; opt. dep. of clj-http
+        org.bovinegenius/exploding-fish {:mvn/version "0.3.6"} ; URI lib
+        net.digger/vt-parser {:mvn/version "1.0.0"}}
+ :aliases
+ {:run-m {:main-opts ["-m" "cyberland.gui.core"]}
+  :build {:deps {io.github.clojure/tools.build {:mvn/version "0.9.4"}}
+          :jvm-opts ["-Dcljfx.skip-javafx-initialization=true"]
+          :ns-default build}}}
