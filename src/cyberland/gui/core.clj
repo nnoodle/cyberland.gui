@@ -57,4 +57,6 @@
                              :shell shell-effect}))
   (Platform/setImplicitExit true))
 
-(comment ((app :renderer)))
+(comment
+  ;; eval (def app …) in `-main` and run this thereafter
+  ((app :renderer)))

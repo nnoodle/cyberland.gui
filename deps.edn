@@ -12,7 +12,8 @@
  {:run-m {:main-opts ["-m" "cyberland.gui.core"]}
   :dev {:extra-deps {io.github.nubank/morse {:git/tag "v2023.04.30.01" :git/sha "d99b09c"}
                      com.clojure-goes-fast/clj-async-profiler {:mvn/version "1.0.3"}}
-        :jvm-opts ["-Djdk.attach.allowAttachSelf"]}
+        :jvm-opts ["-Djdk.attach.allowAttachSelf"
+                   "-Dcyberland.gui.dev=true"]}
   :build {:deps {io.github.clojure/tools.build {:mvn/version "0.9.4"}}
           :jvm-opts ["-Dcljfx.skip-javafx-initialization=true"]
           :ns-default build}}}

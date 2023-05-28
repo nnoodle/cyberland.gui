@@ -218,11 +218,12 @@
                 {:fx/type :text-field
                  :pref-column-count 30
                  :font "monospace"
+                 :h-box/hgrow :always
                  :tooltip {:fx/type :tooltip
                            :show-duration 20000
-                           :text "Optional shell command that will be prepended to your comment.
+                           :text "Optional shell command that will be PREPENDED to your comment.
 It's intended for posting ANSI images using your preferred program.
-Press enter to preview its output in STDOUT."}
+Press enter in this field to preview its output in STDOUT."}
                  :prompt-text "Shell command"
                  :text (fx/sub-val context :shell-command)
                  :on-action {:event/type ::event/preview-shell-command}
@@ -249,7 +250,13 @@ Press enter to preview its output in STDOUT."}
    :showing true
    :width 500
    :height 700
-   :on-close-request (fn [_] (Platform/runLater #(Platform/exit)))
+   :on-close-request
+   (if (= (System/getProperty "cyberland.gui.dev") "true")
+     identity
+     (fn [_] (Platform/runLater
+                (fn []
+                  (Platform/exit)
+                  (System/exit 0)))))
    :scene
    {:fx/type :scene
     :root (fx/sub-val context select-scene)}})
