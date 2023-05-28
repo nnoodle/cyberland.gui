@@ -27,7 +27,7 @@
   (b/compile-clj {:basis basis
                   :src-dirs ["src"]
                   :class-dir class-dir})
-  (log "Building Überjar (this may take a while)…")
+  (log "Building Überjar… (this may take a while)")
   (b/uber {:basis basis
            :class-dir class-dir
            :uber-file uber-file

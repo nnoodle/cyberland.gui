@@ -1,15 +1,18 @@
 {:paths ["src" "resources"]
- :deps {org.clojure/clojure {:mvn/version "1.10.3"}
+ :deps {org.clojure/clojure {:mvn/version "1.11.1"}
         org.clojure/core.cache {:mvn/version "1.0.225"}
-        cljfx/cljfx {:mvn/version "1.7.17"
+        cljfx/cljfx {:mvn/version "1.7.23"
                      :exclusions [org.openjfx/javafx-web
                                   org.openjfx/javafx-media]}
         clj-http/clj-http {:mvn/version "3.12.3"}
-        cheshire/cheshire {:mvn/version "5.10.1"} ; opt. dep. of clj-http
+        cheshire/cheshire {:mvn/version "5.11.0"} ; opt. dep. of clj-http
         org.bovinegenius/exploding-fish {:mvn/version "0.3.6"} ; URI lib
         net.digger/vt-parser {:mvn/version "1.0.0"}}
  :aliases
  {:run-m {:main-opts ["-m" "cyberland.gui.core"]}
+  :dev {:extra-deps {io.github.nubank/morse {:git/tag "v2023.04.30.01" :git/sha "d99b09c"}
+                     com.clojure-goes-fast/clj-async-profiler {:mvn/version "1.0.3"}}
+        :jvm-opts ["-Djdk.attach.allowAttachSelf"]}
   :build {:deps {io.github.clojure/tools.build {:mvn/version "0.9.4"}}
           :jvm-opts ["-Dcljfx.skip-javafx-initialization=true"]
           :ns-default build}}}
